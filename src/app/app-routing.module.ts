@@ -3,12 +3,34 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { FirstComponent } from './components/first/first.component';
+import { SecondComponent } from './components/second/second.component';
+import { ThirdComponent } from './components/third/third.component';
 
 const routes: Routes = [
   {
     path: '',
     component: DashboardComponent,
-    title: 'dashboard'
+    title: 'dashboard',
+    children: [
+      {
+        path: '',
+        redirectTo: 'first',
+        pathMatch:'full'
+      },
+      {
+        path: 'first',
+        component: FirstComponent
+      },
+      {
+        path: 'second',
+        component: SecondComponent
+      },
+      {
+        path: 'third',
+        component: ThirdComponent
+      },
+    ]
   },
   {
     path: 'login',
